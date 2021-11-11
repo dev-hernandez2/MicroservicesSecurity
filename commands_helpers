@@ -1,0 +1,7 @@
+docker build . -t opensuse/leap:latest -m 256 mb --no-cache=true
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+
+
+rke up
