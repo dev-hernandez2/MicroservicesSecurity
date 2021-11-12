@@ -10,6 +10,7 @@ from sqli.schema.config import CONFIG_SCHEMA
 from sqli.services.db import setup_database
 from sqli.services.redis import setup_redis
 from sqli.utils.jinja2 import csrf_processor, auth_user_processor
+from vuln_app.sqli.middlewares import csrf_middleware
 from .routes import setup_routes
 
 
@@ -24,7 +25,7 @@ def init(argv):
         debug=True,
         middlewares=[
             session_middleware,
-            # csrf_middleware,
+            csrf_middleware,
             error_middleware,
         ]
     )
@@ -32,9 +33,11 @@ def init(argv):
 
     setup_jinja(app, loader=PackageLoader('sqli', 'templates'),
                 context_processors=[csrf_processor, auth_user_processor],
-                autoescape=False)
+                autoescape=True)
     setup_database(app)
     setup_redis(app)
     setup_routes(app)
 
     return app
+
+
