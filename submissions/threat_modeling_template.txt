@@ -1,0 +1,47 @@
+Docker Threat Modeling
+Given Docker's system components and the STRIDE framework, identify five potential threats that may arise.
+
+Spoofing Identity
+    - A user with bad intension can get access and introduce a malicious package or image into the registry.
+
+Tampering with Data 
+    - If not use an updated version of the image and have a vulnerability this can be lead to a malicious system exploited
+
+Information Disclosure 
+    - By default, all network traffic is allowed between containers on the same host on the default network bridge, this leads to a leak of restricted data like secrets or keys.
+
+Denial of Service  
+    - Memory limit is not set by default on docker this can be lead to and massive DOS on the images and make them inaccessible.
+
+Elevation of Privilege 
+    - If --privilege flag was not in place this will lead an attacker to get administration or root access to de system and other images containers. 
+
+
+
+
+Kubernetes Threat Modeling
+Given Kubernetes' system components and the STRIDE framework, identify five potential threats that may arise.
+
+Spoofing Identity
+    - Exposing the server to the public could be an entry point for attackers, and allows them to take over the cluster orchestration 
+
+Tampering with Data 
+    - The configuration file could be attaked an affect the entire cluster, compromising the system orchestration.
+
+Repudiation
+    - TLS need to be enabled all the time to prevent unauthorized changes on the system  
+
+Information Disclosure 
+    - Information can be leaked one way to protect the system is to do the communication and store data encrypted at rest. 
+
+Denial of Service 
+ - The orchestration of Kubelet can be a subject of DOS 
+
+
+
+Docker-bench Run Results and Analysis
+From the failed findings, select and document 3 findings from the Docker-bench results that you want to harden based on the 5 attack surface areas you identified in Step 1. At least 1 of the 3 hardened findings should be different from the ones mentioned in the exercise (i.e. 5.10, 5.14, and 5.22).
+
+[FAIL] 2.2 Ensure network traffic is restricted between containers on the default bridge (Automated)
+[FAIL] 2.7 Ensure TLS authentication for Docker daemon is configured (Automated)
+[FAIL] 5.10 Ensure that the memory usage for container is limited (Automated)

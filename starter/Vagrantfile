@@ -31,8 +31,8 @@ Vagrant.configure("2") do |config|
       # install Docker
       zypper --non-interactive install docker #python3-docker-compose
       zypper install falco
-      zypper install kernel-devel
-      zypper install kernel-source
+      zypper in kernel-devel
+      zypper in kernel-source
       systemctl enable docker
       usermod -G docker -a $USER
       systemctl restart docker
