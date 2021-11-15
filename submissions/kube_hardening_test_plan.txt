@@ -1,0 +1,5 @@
+How will you test the changes?
+    - On the Software Development Life Cycle, we can find different stages from the requirement to deployment. We need to ensure a test environment is almost a replica of the production environment to test any new feature.
+ 
+How will you ensure the changes don't negatively affect your cluster?
+    - Sometimes we can run into the situation where the services get into bugs, and if that happens, we need to roll back any changes and put the old version back until we fix the problem. The way We can ensure the changes don't negatively affect your cluster is to create a replica of the production server and test the new feature there using the canary method. 

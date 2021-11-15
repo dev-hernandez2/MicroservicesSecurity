@@ -5,3 +5,9 @@ docker rm $(docker ps -a -q)
 
 
 rke up
+
+ssh root@192.168.56.4
+
+helm install --kubeconfig kube_config_cluster.yml falco falcosecurity/falco \
+  --set falco.grpc.enabled=true \
+  --set falco.grpcOutput.enabled=true \ 
