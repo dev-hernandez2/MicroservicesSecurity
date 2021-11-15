@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Volumes/Mac_Backup/SandBox/Microservices_Security/starter","disabled":false,"__vagrantfile":true,"owner":"root","group":"root"}}}
