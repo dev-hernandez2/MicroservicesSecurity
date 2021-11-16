@@ -11,3 +11,16 @@ ssh root@192.168.56.4
 helm install --kubeconfig kube_config_cluster.yml falco falcosecurity/falco \
   --set falco.grpc.enabled=true \
   --set falco.grpcOutput.enabled=true \ 
+
+
+  kubectl --kubeconfig kube_config_cluster.yml delete  pods falco-sbc8b   --grace-period=0 --force
+
+  kubectl --kubeconfig kube_config_cluster.yml logs -f falco-v77hv | grep /etc/shadow
+
+kubectl --kubeconfig kube_config_cluster.yml --namespace default get pods -l "release=prometheus-operator-1637044126"
+
+  sudo reboot
+
+  kubectl --kubeconfig kube_config_cluster.yml --namespace default port-forward prometheus-prometheus-operator-163704-prometheus-0 9090
+kubectl --kubeconfig kube_config_cluster.yml get pods --namespace default -l "app.kubernetes.io/name=falco-exporter,app.kubernetes.io/instance=falco-exporter" -o jsonpath="{.items[0].metadata.name}"
+kubectl --kubeconfig kube_config_cluster.yml get pods --namespace default -l "app.kubernetes.io/name=falco-exporter,app.kubernetes.io/instance=falco-exporter" -o jsonpath="{.items[0].metadata.name}"
