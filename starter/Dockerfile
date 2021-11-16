@@ -16,5 +16,5 @@ RUN mkdir udacity \
 #install zypper 
 RUN zypper refs && zypper refresh
 
-#add local user
-USER $SEC_USER
+# #add local user
+# USER $SEC_USER
