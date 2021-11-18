@@ -2,41 +2,39 @@ Docker Threat Modeling
 Given Docker's system components and the STRIDE framework, identify five potential threats that may arise.
 
 Spoofing Identity
-    - A user with bad intension can get access and introduce a malicious package or image into the registry.
+    - A user with bad intension can get access and introduce a malicious package or image into the registry this can be lead the user to a malware image.
 
 Tampering with Data 
-    - If not use an updated version of the image and have a vulnerability this can be lead to a malicious system exploited
+    - if not use an updated version of the image and have a vulnerability this can be lead to a malicious system exploited of Docker daemon configuration file.
 
 Information Disclosure 
     - By default, all network traffic is allowed between containers on the same host on the default network bridge, this leads to a leak of restricted data like secrets or keys.
 
 Denial of Service  
-    - Memory limit is not set by default on docker this can be lead to and massive DOS on the images and make them inaccessible.
+    - Memory limit is not set by default on docker images this can be lead to and massive DOS on the images and make them inaccessible because one container can be using most of the memory resources.
 
 Elevation of Privilege 
-    - If --privilege flag was not in place this will lead an attacker to get administration or root access to de system and other images containers. 
-
-
+    - if a user was not in place on the Dockerfile will lead an attacker to get administration or root access to de system and other images containers. 
 
 
 Kubernetes Threat Modeling
 Given Kubernetes' system components and the STRIDE framework, identify five potential threats that may arise.
 
 Spoofing Identity
-    - Exposing the server to the public could be an entry point for attackers, and allows them to take over the cluster orchestration 
+    - Exposing the  Kube ApiServer to the public could be an entry point for attackers, and allowing them to spoof and take over the cluster orchestration is important to limit the access by setting the TLS tunnel.
 
 Tampering with Data 
-    - The configuration file could be attaked an affect the entire cluster, compromising the system orchestration.
+    - The configuration of the etcd could be attacked if it is not restricted by setting the permission to files by 644, if not this can affect the entire cluster, compromising the system orchestration.
 
 Repudiation
-    - TLS need to be enabled all the time to prevent unauthorized changes on the system  
+    - TLS need to be enabled all the time to prevent unauthorized changes on the system Kubelet.
 
 Information Disclosure 
-    - Information can be leaked one way to protect the system is to do the communication and store data encrypted at rest. 
+    - Sensitive Information like keys and secrets can be leaked on etcd,  one way to protect the system is to do the communication and store data encrypted the etcd at rest. 
 
 Denial of Service 
- - The orchestration of Kubelet can be a subject of DOS 
-
+ - The orchestration Kubelet can be a subject of DOS if we don’t set “--protect” flag 
+ 
 
 
 Docker-bench Run Results and Analysis
