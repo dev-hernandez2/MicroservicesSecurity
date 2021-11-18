@@ -1,0 +1,21 @@
+1. Incident commander name:
+    - Unauthorized crypto mining detection on clusters 
+
+2. Executive Summary of what happened:
+    - During our routinary check, we notice an unregular consumption of CPU. While evaluating the cluster we notice an unauthorized cluster, this cluster is categorized as a crypto mining pods.
+
+3. Summary of what was affected:
+    - The unusability of system node due to the high amount of resources usage
+
+4. Summmry of the impact:
+    - Thes Unauthorized affect the consumption of resources like CPU, leading to low performances cluster and system availability
+
+5. Summary of the remediation steps:
+    - Remove the Unauthorized cluster and persistence or ongoing communication
+    - Find how the attackers deploy an exploit against a vulnerable node or system to find re remediation
+    - Scan of any vulnerability on the system
+    - Hardening any vulnerability and re-run the nide 
+
+6. Summary of lessons learned:
+    - Since we’re using monitoring tools like Grafana we can set up a series of rules to block the access of any unauthorized clusters, also we can use another series of tools to put in place a notification system to notify the security team of any exploit
+

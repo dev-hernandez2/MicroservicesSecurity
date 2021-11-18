@@ -23,4 +23,5 @@ kubectl --kubeconfig kube_config_cluster.yml --namespace default get pods -l "re
 
   kubectl --kubeconfig kube_config_cluster.yml --namespace default port-forward prometheus-prometheus-operator-163704-prometheus-0 9090
 kubectl --kubeconfig kube_config_cluster.yml get pods --namespace default -l "app.kubernetes.io/name=falco-exporter,app.kubernetes.io/instance=falco-exporter" -o jsonpath="{.items[0].metadata.name}"
-kubectl --kubeconfig kube_config_cluster.yml get pods --namespace default -l "app.kubernetes.io/name=falco-exporter,app.kubernetes.io/instance=falco-exporter" -o jsonpath="{.items[0].metadata.name}"
+
+kubectl --kubeconfig kube_config_cluster.yml --namespace default port-forward prometheus-operator-1637044126-grafana-6d9d78567c-tvdd8 3000
