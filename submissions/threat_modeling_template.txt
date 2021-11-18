@@ -42,6 +42,13 @@ Denial of Service
 Docker-bench Run Results and Analysis
 From the failed findings, select and document 3 findings from the Docker-bench results that you want to harden based on the 5 attack surface areas you identified in Step 1. At least 1 of the 3 hardened findings should be different from the ones mentioned in the exercise (i.e. 5.10, 5.14, and 5.22).
 
-[FAIL] 2.1 Ensure network traffic is restricted between containers on the default bridge (Scored)
-[FAIL] 2.2.b Ensure the logging level is set to 'info' (Scored)
-[FAIL] 4.5 Ensure Content trust for Docker is Enabled (Automated)
+
+2.2.b Ensure the logging level is set to 'info' (Scored)
+    - Until and unless required, you should not run Docker daemon at debug log level. 
+
+2.1 Ensure network traffic is restricted between containers on the default bridge (Scored)
+    - By default, unrestricted network traffic is enabled between all containers on the same host on the default network bridge. This might lead to unintended and unwanted disclosure of information to other containers. Hence, restrict inter-container communication on the default network bridge. To prevent this we need to set up the docker daemon configuration by adding “"icc": false” on the “daemon.json” file. If any communication between containers on the same host is desired, then it needs to be explicitly defined using container linking or alternatively custom networks have to be defined.
+
+4.5 Ensure Content trust for Docker is Enabled (Automated)
+    - The content trust provides the ability to use digital signatures for data sent to and received from remote Docker registries. To ensure content trust we need to set up the value of “$DOCKER_CONTENT_TRUST” to “1” this way the system admin is required to follow trust procedures whilst working with the image related commands.
+
